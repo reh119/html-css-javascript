@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+html,
+body {
+  /* We set the height of the html and body to 100% to make sure the container will take the full height of the viewport. */
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: Norse-bold;
+  src: url('Norse-Bold.otf');
+}
+.container {
+  display: flex; /* makes the container a flex container*/
+  height: 100vh; /* 100% of the viewport height */
+  overflow: hidden;
+  /* since we set container as display: flex, any direct children of the container will be flex items. */
+}
+.image-div {
+  position: relative; /* we position relative so that we can position the logo absolute to the image-div */
+  width: 40%;
+}
+.image-div > img {
+  /*styles any img if it is a direct child of .image-div. */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* If we use object-fit: cover; the image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit:*/
+  /*The > selector here styles any img if it is a direct child of .image-div. this selector here styles any img if it is a direct child of .image-div. it HAS to be a DIRECT child of .image-div */
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* position absolute will position the logo relative to the image-div because the image-div is positioned relative*/
+  width: 100%;
+  top: 30%;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  padding: 12px 0;
+}
+.logo img {
+  /* will select any img inside the .logo class */
+  height: 120px; /* sets height of logo */
+}
+.logo h1 {
+  /* will select any h1 inside the .logo class*/
+  font-family: Norse-bold;
+  font-size: 5rem;
+  margin-left: 5px;
+}
+.content {
+  background-color: #e9f1f9;
+  width: 100%;
+
+  /* align-items: center; */
+}
+
+.text-content {
+  padding: 100px 40px 10px; /* top, right, bottom, left*/
+  padding-right: 27%;
+}
+
+.text-content p {
+  /* selects any p inside the .text-content class */
+  font-size: 24px;
+  font-weight: 600;
+  color: #070707;
+  margin-bottom: 30px;
+}
+.form-container {
+  background-color: #f9fafb;
+  width: 100%;
+  /* border: solid 5px #e16811; */
+  box-shadow: 0px 0px 100px 3px #070707;
+}
+.form-content p {
+  font-weight: bold;
+  padding-bottom: 2rem;
+}
+.form-content {
+  padding: 30px 40px 30px;
+  font-size: 1.5rem;
+
+  padding-right: 27%;
+  /* border: solid 5px #90e510; */
+}
+
+input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 0px 0px 30px;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-group {
+  padding: 5px;
+  padding-right: 3rem;
+  width: 50%;
+}
+
+.form-group input {
+  /* all input elements inside .form-group*/
+  width: 100%;
+}
+
+/* CSS for red outline */
+
+.button-container {
+  padding-top: 30px;
+  padding-left: 20px;
+}
+.button-container button {
+  width: 20%;
+  height: 40px;
+  background-color: #596d48;
+  border-radius: 10px;
+}
+.input:invalid {
+  border: 2px solid red;
+}
+/* The box-sizing property allows us to include the padding and border in an element's total width and height.
+If you set box-sizing: border-box; on an element, padding and border are included in the width and height:
+The reason why you might want to use box-sizing: border-box is for easier sizing and layout control, especially when dealing with complex layouts or responsive designs. It helps ensure that when you specify a width or height for an element, it includes padding and border, making it simpler to calculate and maintain consistent sizes across different elements.
+//
+If you want the font size to be relative to the container element's size, use em or rem.
+If you want the font size to be a consistent proportion of the entire screen size, use vw or vh.
+
+In CSS, when you apply display: flex; to  .container, it turns all its DIRECT children into flex items. This means that all immediate children of the container become flex items and are laid out according to the flex container's rules.
+so for us, the .image-div and .content are flex items because they are direct children of the .container, but the .logo and .text-content are not flex items because they are not direct children of the .container.
+*/
+/* For JS Part 
+Want to compare passwords 
+1.) add event listener to input fields
+2.) when the user types in either input field, we want to compare the values of the two input fields
+3.) if passwords dont match, apply a red border. 
+*/

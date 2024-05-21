@@ -1,0 +1,79 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  /* we do this here so that we can apply box-sizing: border-box to all elements in the document */
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin. this is done to ensure that the layout is consistent across browsers.
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+  we do this because images, videos, and other media elements are inline by default, which can lead to unexpected spacing issues.
+  If we try to use an inline element in our layout, though, weird things happen. If you've ever had a mysterious 4px gap that wasn't margin or padding or border, it was probably the “inline magic space” that browsers add with line-height. 
+  By setting display: block on all images by default, we sidestep a whole category of funky issues.
+  I also set max-width: 100%. This is done to keep large images from overflowing, if they're placed in a container that isn't wide enough to contain them.
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+  This is done to ensure that form elements like input, button, textarea, and select don't inherit any font styles from their parent elements. instead, they'll use the browser's default styles.
+  font is a rarely-used shorthand that sets a bunch of font-related properties, like font-size, font-weight, and font-family. By setting it to inherit, we instruct these elements to match the typography in their surrounding environment.
+  Here's another weird thing: by default, buttons and inputs don't inherit typographical styles from their parents. Instead, they have their own weird styles.
+  For example, <textarea> will use the system-default monospace font. Text inputs will use the system-default sans-serif font. And both will choose a microscopically-small font size (13.333px in Chrome).
+  As you might imagine, it's very hard to read 13px text on a mobile device. When we focus an input with a small font size, the browser will automatically zoom in, so that the text is easier to read.
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+  This is done to ensure that text doesn't overflow its container. This is especially important when working with dynamic content, like user-generated text or translations. 
+  In CSS, text will automatically line-wrap if there isn't enough space to fit all of the characters on a single line.
+
+ By default, the algorithm will look for “soft wrap” opportunities; these are the characters that the algorithm can split on. In English, the only soft wrap opportunities are whitespace and hyphens, but this varies from language to language.
+
+ If a line doesn't have any soft wrap opportunities, and it doesn't fit, it will cause the text to overflow:
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
