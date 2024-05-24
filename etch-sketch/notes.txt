@@ -1,0 +1,48 @@
+defer in script tag will load the file AFTER the hrml is parsed
+
+ DOM Notes:
+// element.querySelector(selector) - returns a reference to the first match of selector.
+// element.querySelectorAll(selectors) - returns a “NodeList” containing references to all of the matches of the selectors.
+It’s important to remember that when using querySelectorAll, the return value is not an array. It looks like an array, and it somewhat acts like an array, but it’s really a “NodeList”. The big distinction is that several array methods are missing from NodeLists. One solution, if problems arise, is to convert the NodeList into an array. You can do this with Array.from() or the spread operator.
+// Steps to createImageBitmap, append, a DOM element to webpage (html) using JavaScript:
+// 1.) use document.querySelector to select the element you want to append the new element to.
+// 2.) create the new element using document.createElement('div') or another element type.\
+// 3.) *optional* use classList.add('content') to add a class name to the new element.
+// 4.) *optional* add an inline style to style content you will add. (few ways to do this)
+// 5.) content.textContent = 'Hello World' - add text content to the new element.
+// 6.) append the new element to the selected element using appendChild or append.
+
+// Adding text content 
+div.textContent = "Hello World!";
+
+
+// adding html content
+div.innerHTML = "<span>Hello World!</span>";
+
+selects all divs called rows
+// document.querySelectors('.rows') 
+
+Event Listeners: 
+The addEventListener() method attaches an event handler to the specified element.
+
+The addEventListener() method attaches an event handler to an element without overwriting existing event handlers.
+You can add many event handlers to one element.
+You can add many event handlers of the same type to one element, i.e two "click" events.
+You can add event listeners to any DOM object not only HTML elements. i.e the window object.
+The addEventListener() method makes it easier to control how the event reacts to bubbling.
+
+Attaching listeners to groups of nodes: This is what we did for the hover affect and attaching an event listener to each row 
+This might seem like a lot of code if you’re attaching lots of similar event listeners to many elements. There are a few ways to go about doing that more efficiently. We learned above that we can get a NodeList of all of the items matching a specific selector with querySelectorAll('selector'). In order to add a listener to each of them, we need to iterate through the whole list, like so:
+
+Etch-sketch
+
+const hover = document.querySelectorAll('.rows') // this will return a node list of all the rows, hover is an array of all the rows
+// this is an arrpw function that will loop through each row and add an event listener to each row, this event listener will change the background color of the row to red when the mouse hovers over it
+// we use the .forEach method to iterate through each button
+hover.forEach((row) => {
+  // hover is an element of the array, row is the current element of the array
+  // and for each one we add a 'click' listener
+  row.addEventListener('mouseover', () => {
+    row.style.backgroundColor = 'red'
+  })
+})

@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  display: flex;
+  justify-content:  center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #000000;
+
+  
+}
+
+div {
+  display: flex; /* default: row */
+  border: solid 1px black;
+  background-color: white;
+}
+.column {
+  display: flex;
+  flex-direction: column; 
+  border: solid 1px black;
+  flex: 1;
+ 
+}
+.rows {
+  border: solid 1px black;
+  display: flex; 
+  flex: 1;
+  
+ 
+}
+
+#container {
+  height: 500px; 
+  width: 500px;
+  display: flex;
+}
+
+
+
+/* div:hover{
+  background-color: rgb(25, 105, 175);
+} */
+/*.row and .col have to have a different flex direction so a grid is made
