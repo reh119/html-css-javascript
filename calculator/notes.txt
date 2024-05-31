@@ -1,0 +1,13 @@
+Font Sizing:
+  - EM is relative to the parent element's font size, so if you wish to scale the element's size based on its parent's size, use EM. REM is relative to the root (HTML) font size, so if you wish to scale the element's size based on the root size, no matter what the parent size is, use REM.
+
+DOM Manip Note:
+- defer in script tag will load the file AFTER the hrml is parsed. the issue i faced was that the script was running BEFORE the DOM is fully loaded. 
+
+Event Manip: 
+  Event Paramter in handleButtonClick 
+  - When you define a function like handleButtonClick(event){}, the event parameter is intended to capture the event object when the function is invoked in response to an event. Even though you don't explicitly pass an event object when you call handleButtonClick within your code, the browser automatically provides this event object when the function is called as an event handler.
+  -  handleButtonClick is referred to as a callback function. A callback function is a function that is passed as an argument to another function and is executed after some kind of event or operation. In your example, handleButtonClick is the callback function that is passed to addEventListener to be called whenever a click event occurs on one of the buttons.
+  Inline function being used as callback. The The e parameter in this function will receive the event object when the button is clicked, just like the event parameter in your handleButtonClick function. 
+
+  
